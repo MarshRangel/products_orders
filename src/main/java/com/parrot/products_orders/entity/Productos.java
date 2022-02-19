@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.Builder;
@@ -33,4 +34,7 @@ public class Productos {
 
     @Column(name = "cantidad")
     private int cantidad;
+
+    @ManyToOne
+    private Usuarios usuario;
 }

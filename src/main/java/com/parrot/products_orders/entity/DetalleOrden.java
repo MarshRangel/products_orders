@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name = "details_orders", uniqueConstraints = {@UniqueConstraint(columnNames = {"nombre_orden"})})
+@Table(name = "details", uniqueConstraints = {@UniqueConstraint(columnNames = {"nombre_orden"})})
 @Data
 @Builder
 @NoArgsConstructor
@@ -34,4 +35,10 @@ public class DetalleOrden {
 
     @Column(name = "cantidad")
     private int cantidad;
+
+    @OneToOne
+    private Ordenes orden;
+
+    @OneToOne
+    private Productos producto;
 }

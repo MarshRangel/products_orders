@@ -7,11 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"nombre"})})
@@ -28,7 +31,7 @@ public class Usuarios {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "username", nullable = false)
@@ -36,4 +39,10 @@ public class Usuarios {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Productos> productos;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Ordenes> ordenes;
 }

@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 
 import lombok.Data;
 import lombok.Builder;
@@ -38,4 +41,10 @@ public class Ordenes {
 
     @Column(name = "fecha_recibida")
     private Date fecha_recibida;
+
+    @ManyToOne
+    private Usuarios usuario;
+
+    @OneToOne(mappedBy = "orden")
+    private DetalleOrden detalle;
 }
