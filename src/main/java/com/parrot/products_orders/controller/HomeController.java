@@ -3,7 +3,9 @@ package com.parrot.products_orders.controller;
 import com.parrot.products_orders.entity.DetalleOrden;
 import com.parrot.products_orders.entity.Ordenes;
 import com.parrot.products_orders.entity.Productos;
+import com.parrot.products_orders.entity.Usuarios;
 import com.parrot.products_orders.service.ProductosService;
+import com.parrot.products_orders.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ public class HomeController {
 
     @Autowired
     private ProductosService productosService;
+
+    @Autowired
+    private UsuarioService usuarioService;
 
     // Detalles de la orden
     List<DetalleOrden> detalles= new ArrayList<DetalleOrden>();
@@ -59,7 +64,7 @@ public class HomeController {
         detalleOrden.setTotal(producto.getPrecio_unitario()*cantidad);
         detalleOrden.setProducto(producto);
 
-        // Comprobar productos seleccionados
+        // Comprobar que productos seleccionados no se dupliquen
         Long idProducto=producto.getId();
         boolean ingresado= detalles.stream().anyMatch(prod -> prod.getProducto().getId()==idProducto);
         if(!ingresado) {
@@ -103,5 +108,15 @@ public class HomeController {
         modelo.addAttribute("cart",detalles);
         modelo.addAttribute("orden",orden);
         return "usuario/carrito";
+    }
+
+    @GetMapping("/order")
+    public String order(Model modelo) {
+//        Usuarios usuario= usuarioService.findById().get();
+
+        modelo.addAttribute("cart",detalles);
+        modelo.addAttribute("orden",orden);
+//        modelo.addAttribute("usuario", usuario)
+        return "usuario/resumenorden";
     }
 }
