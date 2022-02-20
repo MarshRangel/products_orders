@@ -33,8 +33,11 @@ public class Ordenes {
     @Column(name = "nombre_cliente", nullable = false)
     private String nombre_cliente;
 
-    @Column(name = "precio_total")
-    private float precio_total;
+    @Column(name = "precio")
+    private double precio;
+
+    @Column(name = "total")
+    private double total;
 
     @Column(name = "fecha_creacion")
     private Date fecha_creacion;

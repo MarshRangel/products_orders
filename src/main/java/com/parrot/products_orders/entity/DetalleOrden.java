@@ -32,7 +32,7 @@ public class DetalleOrden {
     private String nombre_orden;
 
     @Column(name = "precio")
-    private float precio_total;
+    private float precio;
 
     @Column(name = "cantidad")
     private int cantidad;
