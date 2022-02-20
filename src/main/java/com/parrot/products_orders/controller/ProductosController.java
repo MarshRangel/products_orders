@@ -55,6 +55,9 @@ public class ProductosController {
 
     @PostMapping("update")
     public String update(Productos producto) {
+        Productos p = new Productos();
+        p = productosService.get(producto.getId()).get();
+        producto.setUsuario(p.getUsuario());
         productosService.update(producto);
         return "redirect:/productos";
     }
