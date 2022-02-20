@@ -59,7 +59,12 @@ public class HomeController {
         detalleOrden.setTotal(producto.getPrecio_unitario()*cantidad);
         detalleOrden.setProducto(producto);
 
-        detalles.add(detalleOrden);
+        // Comprobar productos seleccionados
+        Long idProducto=producto.getId();
+        boolean ingresado= detalles.stream().anyMatch(prod -> prod.getProducto().getId()==idProducto);
+        if(!ingresado) {
+            detalles.add(detalleOrden);
+        }
 
         sumaTotal= detalles.stream().mapToDouble(dt ->dt.getTotal()).sum();
 
@@ -67,6 +72,36 @@ public class HomeController {
         modelo.addAttribute("cart",detalles);
         modelo.addAttribute("orden",orden);
 
+        return "usuario/carrito";
+    }
+
+    @GetMapping("/delete/cart/{id}")
+    public String deleteProducto(@PathVariable Long id, Model modelo) {
+        // Lista nueva de productos
+        List<DetalleOrden> ordenNueva= new ArrayList<DetalleOrden>();
+
+        for(DetalleOrden detalleOrden: detalles) {
+            if(detalleOrden.getProducto().getId()!=id) {
+                ordenNueva.add(detalleOrden);
+            }
+        }
+        // Nueva lista con los productos restantes
+        detalles=ordenNueva;
+
+        double sumaTotal=0;
+        sumaTotal= detalles.stream().mapToDouble(dt ->dt.getTotal()).sum();
+
+        orden.setTotal(sumaTotal);
+        modelo.addAttribute("cart",detalles);
+        modelo.addAttribute("orden",orden);
+
+        return "usuario/carrito";
+    }
+
+    @GetMapping("/getCart")
+    public String getCart(Model modelo) {
+        modelo.addAttribute("cart",detalles);
+        modelo.addAttribute("orden",orden);
         return "usuario/carrito";
     }
 }
