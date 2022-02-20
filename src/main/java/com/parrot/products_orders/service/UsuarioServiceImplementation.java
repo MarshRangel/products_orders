@@ -22,4 +22,9 @@ public class UsuarioServiceImplementation implements UsuarioService {
     public Usuarios save(Usuarios usuario) {
         return usuarioRepository.save(usuario);
     }
+
+    @Override
+    public Optional<Usuarios> findByUsername(String username) {
+        return usuarioRepository.findByUsername(username);
+    }
 }
