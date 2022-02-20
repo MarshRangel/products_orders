@@ -31,11 +31,14 @@ public class DetalleOrden {
     @Column(name = "nombre_orden", nullable = false)
     private String nombre_orden;
 
-    @Column(name = "precio_total")
+    @Column(name = "precio")
     private float precio_total;
 
     @Column(name = "cantidad")
     private int cantidad;
+
+    @Column(name = "total")
+    private float total;
 
     @OneToOne
     private Ordenes orden;
