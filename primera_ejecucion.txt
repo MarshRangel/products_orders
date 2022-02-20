@@ -6,21 +6,21 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.3)
 
-2022-02-19 17:25:07.836  INFO 13440 --- [           main] c.p.p.ProductsOrdersApplication          : Starting ProductsOrdersApplication using Java 11.0.12 on LAPTOP-MARSH with PID 13440 (C:\Users\Windows 10 Pro\Documents\Parrot\products_orders\build\classes\java\main started by Windows 10 Pro in C:\Users\Windows 10 Pro\Documents\Parrot\products_orders)
-2022-02-19 17:25:07.839  INFO 13440 --- [           main] c.p.p.ProductsOrdersApplication          : No active profile set, falling back to default profiles: default
-2022-02-19 17:25:08.559  INFO 13440 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-02-19 17:25:08.574  INFO 13440 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
-2022-02-19 17:25:09.514  INFO 13440 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-02-19 17:25:09.526  INFO 13440 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-02-19 17:25:09.526  INFO 13440 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
-2022-02-19 17:25:09.658  INFO 13440 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-02-19 17:25:09.658  INFO 13440 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1757 ms
-2022-02-19 17:25:09.807  INFO 13440 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-02-19 17:25:09.850  INFO 13440 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
-2022-02-19 17:25:10.003  INFO 13440 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-02-19 17:25:10.098  INFO 13440 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-02-19 17:25:10.397  INFO 13440 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-02-19 17:25:10.410  INFO 13440 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-02-19 17:39:49.733  INFO 5904 --- [           main] c.p.p.ProductsOrdersApplication          : Starting ProductsOrdersApplication using Java 11.0.12 on LAPTOP-MARSH with PID 5904 (C:\Users\Windows 10 Pro\Documents\Parrot\products_orders\build\classes\java\main started by Windows 10 Pro in C:\Users\Windows 10 Pro\Documents\Parrot\products_orders)
+2022-02-19 17:39:49.748  INFO 5904 --- [           main] c.p.p.ProductsOrdersApplication          : No active profile set, falling back to default profiles: default
+2022-02-19 17:39:50.436  INFO 5904 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-19 17:39:50.451  INFO 5904 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-02-19 17:39:51.368  INFO 5904 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-19 17:39:51.384  INFO 5904 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-19 17:39:51.384  INFO 5904 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-19 17:39:51.524  INFO 5904 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-19 17:39:51.524  INFO 5904 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1729 ms
+2022-02-19 17:39:51.665  INFO 5904 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-19 17:39:51.696  INFO 5904 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-19 17:39:51.852  INFO 5904 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-19 17:39:51.946  INFO 5904 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-19 17:39:52.243  INFO 5904 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-19 17:39:52.259  INFO 5904 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
 Hibernate: create table details (id bigint not null auto_increment, cantidad integer, nombre_orden varchar(255) not null, precio_total float, orden_id bigint, producto_id bigint, primary key (id)) engine=MyISAM
 Hibernate: create table orders (id bigint not null auto_increment, fecha_creacion datetime, fecha_recibida datetime, nombre_cliente varchar(255) not null, precio_total float, usuario_id bigint, primary key (id)) engine=MyISAM
 Hibernate: create table products (id bigint not null auto_increment, cantidad integer, nombre_producto varchar(255) not null, precio_unitario float, usuario_id bigint, primary key (id)) engine=MyISAM
@@ -39,14 +39,14 @@ Hibernate: alter table details add constraint FKppj82dxrbl9ywgtlrqpfhofx6 foreig
 Hibernate: alter table details add constraint FK5s8sjoeic4w0smoqit0epmoey foreign key (producto_id) references products (id)
 Hibernate: alter table orders add constraint FKa102nnp0x6it9ei3my87cvnga foreign key (usuario_id) references users (id)
 Hibernate: alter table products add constraint FKrii73vnfdywsqg6sl5vv7rvh1 foreign key (usuario_id) references users (id)
-2022-02-19 17:25:11.386  INFO 13440 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-02-19 17:25:11.395  INFO 13440 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-02-19 17:25:11.439  WARN 13440 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-02-19 17:25:11.709  WARN 13440 --- [           main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2022-02-19 17:25:11.796  INFO 13440 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+2022-02-19 17:39:53.305  INFO 5904 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-19 17:39:53.321  INFO 5904 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-19 17:39:53.368  WARN 5904 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-19 17:39:53.618  WARN 5904 --- [           main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-02-19 17:39:53.696  INFO 5904 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 53d65863-51d6-435b-9c88-02278c95956a
+Using generated security password: 7ddaedaa-7da7-46c0-aa32-1ff77c032be9
 
-2022-02-19 17:25:11.903  INFO 13440 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b0575d0, org.springframework.security.web.context.SecurityContextPersistenceFilter@e5c52fa, org.springframework.security.web.header.HeaderWriterFilter@546c30c2, org.springframework.security.web.csrf.CsrfFilter@2d34866a, org.springframework.security.web.authentication.logout.LogoutFilter@e27d97b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@690677de, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7112b21a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@fd0e118, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@56976b8b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@538a90a5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74d53d63, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62f6185a, org.springframework.security.web.session.SessionManagementFilter@568c9ee1, org.springframework.security.web.access.ExceptionTranslationFilter@6074d638, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1f7fcec2]
-2022-02-19 17:25:11.986  INFO 13440 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-02-19 17:25:11.997  INFO 13440 --- [           main] c.p.p.ProductsOrdersApplication          : Started ProductsOrdersApplication in 4.585 seconds (JVM running for 5.059)
+2022-02-19 17:39:53.790  INFO 5904 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77e1dacd, org.springframework.security.web.context.SecurityContextPersistenceFilter@189e96af, org.springframework.security.web.header.HeaderWriterFilter@44948ac6, org.springframework.security.web.csrf.CsrfFilter@757c685d, org.springframework.security.web.authentication.logout.LogoutFilter@507f7cd1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@36885319, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ba08a09, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@690677de, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7a71ebf1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60e80279, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fc56d61, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c5d376c, org.springframework.security.web.session.SessionManagementFilter@3bc3d70e, org.springframework.security.web.access.ExceptionTranslationFilter@27d5eb00, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7fb5368e]
+2022-02-19 17:39:53.868  INFO 5904 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-02-19 17:39:53.883  INFO 5904 --- [           main] c.p.p.ProductsOrdersApplication          : Started ProductsOrdersApplication in 4.568 seconds (JVM running for 5.056)

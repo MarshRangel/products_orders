@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.Builder;
@@ -39,6 +40,6 @@ public class DetalleOrden {
     @OneToOne
     private Ordenes orden;
 
-    @OneToOne
+    @ManyToOne
     private Productos producto;
 }
