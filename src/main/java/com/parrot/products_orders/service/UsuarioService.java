@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface UsuarioService {
 
     Optional<Usuarios> findById(Long id);
+    Usuarios save(Usuarios usuario);
 }
