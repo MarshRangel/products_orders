@@ -4,6 +4,8 @@ import com.parrot.products_orders.entity.DetalleOrden;
 import com.parrot.products_orders.entity.Ordenes;
 import com.parrot.products_orders.entity.Productos;
 import com.parrot.products_orders.entity.Usuarios;
+import com.parrot.products_orders.service.DetalleOrdenServices;
+import com.parrot.products_orders.service.OrdenesServices;
 import com.parrot.products_orders.service.ProductosService;
 import com.parrot.products_orders.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +28,12 @@ public class HomeController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private OrdenesServices ordenesServices;
+
+    @Autowired
+    private DetalleOrdenServices detalleOrdenServices;
 
     // Detalles de la orden
     List<DetalleOrden> detalles= new ArrayList<DetalleOrden>();
@@ -118,5 +127,29 @@ public class HomeController {
         modelo.addAttribute("orden",orden);
 //        modelo.addAttribute("usuario", usuario)
         return "usuario/resumenorden";
+    }
+
+    @GetMapping("/saveOrder")
+    public String saveOrder() {
+        Date fecha_creacion= new Date();
+        orden.setFecha_creacion(fecha_creacion);
+        orden.setNumero(ordenesServices.generarNumeroOrden());
+
+//        Usuarios usuario= usuarioService.findById().get();
+//        orden.setUsuario(usuario);
+
+        ordenesServices.save(orden);
+
+        // Salvar detalles
+        for (DetalleOrden dt:detalles) {
+            dt.setOrden(orden);
+            detalleOrdenServices.save(dt);
+        }
+
+        // Limpiar de la vista Orden
+        orden= new Ordenes();
+        detalles.clear();
+
+        return "redirect:/";
     }
 }

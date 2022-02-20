@@ -30,7 +30,10 @@ public class Ordenes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre_cliente", nullable = false)
+    @Column(name = "numero", nullable = false)
+    private String numero;
+
+    @Column(name = "nombre_cliente")
     private String nombre_cliente;
 
     @Column(name = "precio")
